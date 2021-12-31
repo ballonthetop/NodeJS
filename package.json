@@ -1,0 +1,12 @@
+{
+    "name": "openshift-nodejs",
+    "version": "1.0.0",
+    "description": "Triển khai ứng dụng Openshift NodeJS",
+    "main": "index.js",
+    "scripts":{
+        "test": "echo \"Error: no test specifild\" && exit 1",
+        "start": "node index.js"
+    },
+    "author": "Trần Văn An - Nguyễn Ngọc Phú - Trần Hòa Thuận",
+    "license": "ISC" 
+}
