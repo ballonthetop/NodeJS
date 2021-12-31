@@ -1,12 +1,23 @@
-const http = require("http");
+const express = require('express')
+const app = express();
+const port = 8000;
+const json2html = require('node-json2html');
+var path = require('path');
+var fs = require('fs');
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        "Content-type": "text/html",
-    });
-    res.end("<h1>Xin Chào Mọi Người - Ứng Dụng Openshift NodeJS</h1>");
+let html = json2html.render(
+    [
+        {"name": "Justice League", "year":2021},
+        {"name": "Coming 2 America", "year":2021}
+    ], 
+    {"<>": "li", "html":[
+    	{"<>": "span", "text": "${name} (${year})"}
+      ]});
+
+app.get('/render', (req, res) => {
+	res.send(html);
 });
 
-server.listen(8000, () => {
-    console.log("Listening to requests on port 8000");
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`)
+})
